@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring MVC + Hibernate</title>
+</head>
+<body>
+
+<h1>Пользователи</h1>
+
+<a th:href="@{/user_info}">
+  <button>Добавить пользователя</button>
+</a>
+<br>
+<br>
+<br>
+
+<div class="users">
+  <table style="text-align: center; border-collapse: collapse; border: 1px solid black; font-size: 20px">
+    <tr style="background: dodgerblue">
+      <th style="border: 1px solid black">Name</th>
+      <th style="border: 1px solid black">Lastname</th>
+      <th style="border: 1px solid black">Age</th>
+      <th style="border: 1px solid black">Operations</th>
+    </tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.name}" style="border: 1px solid black"></td>
+      <td th:text="${user.lastName}" style="border: 1px solid black"></td>
+      <td th:text="${user.age}" style="border: 1px solid black"></td>
+      <td style="border: 1px solid black">
+        <a style="text-decoration: none" th:href="@{/update_user(userId=${user.id})}">
+          <button>Изменить</button>
+        </a>
+        <a style="text-decoration: none" th:href="@{/delete_user(userId=${user.id})}">
+          <button>Удалить</button>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

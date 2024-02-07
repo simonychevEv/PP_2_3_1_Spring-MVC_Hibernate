@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользователь</title>
+</head>
+<body>
+
+<h1>Пользователь</h1>
+
+<form th:method="POST" th:action="@{/user_info}" th:object="${user}" >
+
+    <input type="hidden" th:field="*{id}">
+
+    <label for="name">Введите name: </label>
+    <input type="text" th:field="*{name}" id="name">
+    <br/>
+
+    <label for="lastName">Введите lastName: </label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+    <br/>
+
+    <label for="age">Введите age: </label>
+    <input type="number" th:field="*{age}" id="age">
+    <br/>
+
+    <input type="submit" value="OK">
+
+</form>
+<br>
+
+<form th:action="@{/}" th:method="GET" >
+    <button type="submit">Пользователи</button>
+</form>
+
+</body>
+</html>
